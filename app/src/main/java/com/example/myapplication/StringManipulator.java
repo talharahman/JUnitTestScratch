@@ -17,13 +17,22 @@ public class StringManipulator {
 
     public static void main(String[] args) {
         System.out.println(StringManipulator.getInstance().isLessThan10(null));
+        System.out.println(StringManipulator.getInstance().isOddLength(null));
+
     }
 
-    public boolean isLessThan10(@NonNull String input) {
+    public boolean isLessThan10(String input) {
         if (input == null) {
             return false;
         }
         return input.length() < 10;
+    }
+
+    public boolean isOddLength(String input){
+        if (input == null) {
+            return false;
+        }
+        return  input.length() % 2 != 0;
     }
 
 

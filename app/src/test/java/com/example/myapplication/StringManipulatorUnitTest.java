@@ -26,6 +26,16 @@ public class StringManipulatorUnitTest {
         Assert.assertFalse(StringManipulator.getInstance().isLessThan10( null));
     }
 
+    @Test
+    public void isOddTest(){
+        String testString = "Hello";
+        Assert.assertTrue(StringManipulator.getInstance().isOddLength(testString));
+    }
+
+    @Test
+    public void isOddTestNull(){
+        Assert.assertFalse(StringManipulator.getInstance().isOddLength(null));
+    }
 
     @After
     public void tearDown() throws Exception{
