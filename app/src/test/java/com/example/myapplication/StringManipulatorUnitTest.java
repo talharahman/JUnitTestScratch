@@ -52,6 +52,17 @@ public class StringManipulatorUnitTest {
     }
 
     @Test
+    public void deConstructedWordTest(){
+        String testString = "hello";
+        String result = "hll eo";
+        Assert.assertEquals(result, StringManipulator.getInstance().deConstructedWord(testString));
+    }
+
+    @Test
+    public void deConstructedWordTestNull(){
+        String result = "";
+        Assert.assertEquals(result, StringManipulator.getInstance().deConstructedWord(null));
+    }
 
     @After
     public void tearDown() throws Exception{

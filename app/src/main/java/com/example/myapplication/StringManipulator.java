@@ -23,7 +23,7 @@ public class StringManipulator {
         System.out.println(StringManipulator.getInstance().isLessThan10(null));
         System.out.println(StringManipulator.getInstance().isOddLength(null));
         System.out.println(StringManipulator.getInstance().zipperWords("hello",null));
-        System.out.println(StringManipulator.getInstance().deConstructedWord("goodbye"));
+        System.out.println(StringManipulator.getInstance().deConstructedWord(null));
     }
 
     public boolean isLessThan10(String input) {
@@ -85,6 +85,8 @@ public class StringManipulator {
         }
         return consonants + " " + vowels;
     }
+
+
 
 
 }
