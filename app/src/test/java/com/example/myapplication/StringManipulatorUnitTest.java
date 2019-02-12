@@ -37,6 +37,22 @@ public class StringManipulatorUnitTest {
         Assert.assertFalse(StringManipulator.getInstance().isOddLength(null));
     }
 
+    @Test
+    public void zipperWordsTestSameSize(){
+        String first = "hello";
+        String second = "world";
+        String result = "hweolrllod";
+        Assert.assertEquals(result, StringManipulator.getInstance().zipperWords(first, second));
+    }
+
+    @Test
+    public void zipperWordsTestNull(){
+       String result = "";
+       Assert.assertEquals(result, StringManipulator.getInstance().zipperWords("hello", null));
+    }
+
+    @Test
+
     @After
     public void tearDown() throws Exception{
         stringManipulator = null;
