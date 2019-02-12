@@ -89,6 +89,21 @@ public class StringManipulatorUnitTest {
         Assert.assertEquals(expected, StringManipulator.getInstance().longestWord(new String[]{"hello", null, "aliens"}));
     }
 
+    @Test
+    public void word_sort_test(){
+        String[] testing = {"hello", "world", "of", "aliens"};
+        String[] expected = {"of", "world", "hello", "aliens"};
+        // not sure why its crossed out
+        Assert.assertEquals(expected, StringManipulator.getInstance().wordSort(testing));
+    }
+
+    @Test
+    public void word_sort_test_null(){
+        String[] testing = {"hello", null, "of", "aliens"};
+        String[] expected = {"of", null, "hello", "aliens"};
+        Assert.assertEquals(expected, StringManipulator.getInstance().wordSort(testing));
+    }
+
     @After
     public void tearDown() throws Exception{
         stringManipulator = null;

@@ -26,6 +26,7 @@ public class StringManipulator {
         System.out.println(StringManipulator.getInstance().deConstructedWord(null));
         System.out.println(StringManipulator.getInstance().wordSum("hello", null));
         System.out.println(StringManipulator.getInstance().longestWord(new String[]{"hello", "world", null, "aliens"}));
+        System.out.println(Arrays.toString(StringManipulator.getInstance().wordSort(new String[]{"hello", "world", "of", "aliens"})));
     }
 
     public boolean isLessThan10(String input) {
@@ -62,7 +63,6 @@ public class StringManipulator {
         for (int i = 0; i < shorter.length(); i++) {
             temp += first.charAt(i);
             temp += second.charAt(i);
-
         }
 
         temp += longer.substring(shorter.length());
@@ -109,7 +109,24 @@ public class StringManipulator {
         return longest;
     }
 
-
-
+    public String[] wordSort(String[] words){
+        // use bubble sort
+        for (int i = 0; i < words.length; i++) {
+            if (words[i] == null) {
+                continue;
+            }
+            for (int m = i + 1; m < words.length; m++) {
+                if (words[m] == null) {
+                    continue;
+                }
+                if (words[i].length() > words[m].length()){
+                    String temp = words[m];
+                    words[m] = words[i];
+                    words[i] = temp;
+                }
+            }
+        }
+        return words;
+    }
 
 }
