@@ -24,6 +24,8 @@ public class StringManipulator {
         System.out.println(StringManipulator.getInstance().isOddLength(null));
         System.out.println(StringManipulator.getInstance().zipperWords("hello",null));
         System.out.println(StringManipulator.getInstance().deConstructedWord(null));
+        System.out.println(StringManipulator.getInstance().wordSum("hello", null));
+        System.out.println(StringManipulator.getInstance().longestWord(new String[]{"hello", "world", null, "aliens"}));
     }
 
     public boolean isLessThan10(String input) {
@@ -84,6 +86,27 @@ public class StringManipulator {
             }
         }
         return consonants + " " + vowels;
+    }
+
+    public int wordSum(String first, String second) {
+        if (first != null && second != null) {
+            return first.length() + second.length();
+        } else {
+            return 0;
+        }
+    }
+
+    public String longestWord(String[] input){
+        String longest = "";
+        for (int i = 0; i < input.length; i++) {
+            if(input[i] == null){
+                continue;
+            }
+            if(input[i].length() > longest.length()){
+                longest = input[i];
+            }
+        }
+        return longest;
     }
 
 

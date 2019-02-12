@@ -15,30 +15,30 @@ public class StringManipulatorUnitTest {
     }
 
     @Test
-    public void isLessThan10Test(){
-        String testString = "Hello";
+    public void is_less_than_10_Test(){
+        String testString = "Hello Wor";
         Assert.assertTrue(StringManipulator.getInstance().isLessThan10(testString));
     }
 
 
     @Test
-    public void isLessThan10TestNull(){
+    public void is_less_than_10_test_null(){
         Assert.assertFalse(StringManipulator.getInstance().isLessThan10( null));
     }
 
     @Test
-    public void isOddTest(){
+    public void is_odd_test(){
         String testString = "Hello";
         Assert.assertTrue(StringManipulator.getInstance().isOddLength(testString));
     }
 
     @Test
-    public void isOddTestNull(){
+    public void is_odd_test_null(){
         Assert.assertFalse(StringManipulator.getInstance().isOddLength(null));
     }
 
     @Test
-    public void zipperWordsTestSameSize(){
+    public void zipper_words_test_same_size(){
         String first = "hello";
         String second = "world";
         String result = "hweolrllod";
@@ -46,22 +46,47 @@ public class StringManipulatorUnitTest {
     }
 
     @Test
-    public void zipperWordsTestNull(){
+    public void zipper_words_test_null(){
        String result = "";
        Assert.assertEquals(result, StringManipulator.getInstance().zipperWords("hello", null));
     }
 
     @Test
-    public void deConstructedWordTest(){
+    public void decnstructed_word_test(){
         String testString = "hello";
         String result = "hll eo";
         Assert.assertEquals(result, StringManipulator.getInstance().deConstructedWord(testString));
     }
 
     @Test
-    public void deConstructedWordTestNull(){
+    public void deconstructed_word_test_null(){
         String result = "";
         Assert.assertEquals(result, StringManipulator.getInstance().deConstructedWord(null));
+    }
+
+    @Test
+    public void word_sum_test(){
+        int result = 10;
+        Assert.assertEquals(result, StringManipulator.getInstance().wordSum("Hello", "World"));
+    }
+
+    @Test
+    public void word_sum_test_null(){
+        int result = 0;
+        Assert.assertEquals(result, StringManipulator.getInstance().wordSum("Hello", null));
+    }
+
+    @Test
+    public void longest_word_test(){
+        String[] input = {"hello", "world", "of", "aliens"};
+        String expected = "aliens";
+        Assert.assertEquals(expected, StringManipulator.getInstance().longestWord(input));
+    }
+
+    @Test
+    public void longest_word_test_null(){
+        String expected = "aliens";
+        Assert.assertEquals(expected, StringManipulator.getInstance().longestWord(new String[]{"hello", null, "aliens"}));
     }
 
     @After
