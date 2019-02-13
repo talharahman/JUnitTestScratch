@@ -25,6 +25,7 @@ public class NumberHelper {
         System.out.println(NumberHelper.getInstance().stringToNumber("5"));
         System.out.println(NumberHelper.getInstance().largestNumber(new int[]{1,2,3}));
         System.out.println(NumberHelper.getInstance().largestNumber(new int[]{4,5,8,6}));
+        System.out.println(Arrays.toString(NumberHelper.getInstance().numberSort(new int[]{3, 6, 4, 1, 9})));
 
 
     }

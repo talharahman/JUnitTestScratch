@@ -96,6 +96,14 @@ public class NumberHelperUnitTest {
         int expected = 7;
         Assert.assertEquals(expected, numberHelper.largestNumber(args));
     }
+
+    @Test
+    public void number_sort_test(){
+        int[] args = {3, 6, 4, 1, 9};
+        int[] expected = {1, 3, 4, 6, 9};
+        Assert.assertEquals(Arrays.toString(expected), Arrays.toString(numberHelper.numberSort(args)));
+    }
+
     @After
     public void teardown(){
         numberHelper = null;
