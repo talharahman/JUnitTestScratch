@@ -1,5 +1,10 @@
 package com.example.myapplication;
 
+import android.support.annotation.IntRange;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class NumberHelper {
 
     private static NumberHelper thisInstance;
@@ -16,6 +21,8 @@ public class NumberHelper {
     public static void main(String[] args) {
         System.out.println(NumberHelper.getInstance().oddOrEven(0));
         System.out.println(NumberHelper.getInstance().divisibleBy5(11));
+        System.out.println(Arrays.toString(NumberHelper.getInstance().multiplesOfN(3, 5)));
+        System.out.println(NumberHelper.getInstance().stringToNumber("five"));
     }
 
     /**
@@ -45,8 +52,24 @@ public class NumberHelper {
      */
 
     public int[] multiplesOfN(int baseNumber, int range){
-        int[] arr = new int[]{baseNumber, baseNumber * range -1, baseNumber * range - 2}
-
+        if (range < 0) {
+            throw new IllegalArgumentException("Range cannot be negative");
+        }
+        int[] arr = new int[range];
+        for (int i = 0; i < range; i++) {
+            arr[i] = baseNumber * (i + 1);
+        }
         return arr;
     }
+
+    /**
+     * return an int value
+     * return an int that grabs the int value from a String, i.e. - stringToNumber("5") should return 5
+     */
+
+    public int stringToNumber(String number){
+        return Integer.parseInt(number);
+    }
+
+
 }
