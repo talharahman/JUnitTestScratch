@@ -71,19 +71,31 @@ public class NumberHelperUnitTest {
 
     @Test
     public void array_sum_test(){
-        int[] args = new int[]{1,2,3};
+        int[] args = {1,2,3};
         int expected = 6;
         Assert.assertEquals(expected, numberHelper.arraySum(args));
     }
 
     @Test
     public void array_sum_test_neg(){
-        int[] args = new int[]{1,-1,3, -5, 0};
+        int[] args = {1,-1,3, -5, 0};
         int expected = -2;
         Assert.assertEquals(expected, numberHelper.arraySum(args));
     }
 
+    @Test
+    public void check_largest_number(){
+        int[] args = {1, 3, 7, 5};
+        int expected = 7;
+        Assert.assertEquals(expected, numberHelper.largestNumber(args));
+    }
 
+    @Test
+    public void check_largest_if_negative(){
+        int[] args = {1, 3, -7, 7};
+        int expected = 7;
+        Assert.assertEquals(expected, numberHelper.largestNumber(args));
+    }
     @After
     public void teardown(){
         numberHelper = null;

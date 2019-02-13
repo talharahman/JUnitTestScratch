@@ -23,7 +23,8 @@ public class NumberHelper {
         System.out.println(NumberHelper.getInstance().divisibleBy5(11));
         System.out.println(Arrays.toString(NumberHelper.getInstance().multiplesOfN(3, 5)));
         System.out.println(NumberHelper.getInstance().stringToNumber("5"));
-        System.out.println(NumberHelper.getInstance().arraySum(new int[]{-5,2,-4}));
+        System.out.println(NumberHelper.getInstance().largestNumber(new int[]{1,2,3}));
+        System.out.println(NumberHelper.getInstance().largestNumber(new int[]{4,5,8,6}));
 
 
     }
@@ -92,6 +93,30 @@ public class NumberHelper {
         return sum;
     }
 
+    /**
+     * return an int value
+     * return the largest number in the int array
+     */
+
+    public int largestNumber(int[] numbers){
+        int largest = numbers[0];
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] > largest) {
+                largest = numbers[i];
+            }
+        }
+        return largest;
+    }
+
+    /**
+     * return an int[] array
+     * return the contents of the original array, but sorted by size from smallest to largest
+     */
+
+    public int[] numberSort(int[] numbers){
+        Arrays.sort(numbers);
+        return numbers;
+    }
 
 }
 
