@@ -22,7 +22,10 @@ public class NumberHelper {
         System.out.println(NumberHelper.getInstance().oddOrEven(0));
         System.out.println(NumberHelper.getInstance().divisibleBy5(11));
         System.out.println(Arrays.toString(NumberHelper.getInstance().multiplesOfN(3, 5)));
-        System.out.println(NumberHelper.getInstance().stringToNumber("five"));
+        System.out.println(NumberHelper.getInstance().stringToNumber("5"));
+        System.out.println(NumberHelper.getInstance().arraySum(new int[]{-5,2,-4}));
+
+
     }
 
     /**
@@ -67,9 +70,29 @@ public class NumberHelper {
      * return an int that grabs the int value from a String, i.e. - stringToNumber("5") should return 5
      */
 
-    public int stringToNumber(String number){
-        return Integer.parseInt(number);
+    public int stringToNumber(String number) {
+        try {
+            return Integer.parseInt(number);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    /**
+     * return an int value
+     * return the value of the sum of all the elements in the array combined
+     */
+
+    public int arraySum(int[] numbers){
+        int sum = 0;
+        for (Integer i: numbers){
+            sum += i;
+        }
+        return sum;
     }
 
 
 }
+
+

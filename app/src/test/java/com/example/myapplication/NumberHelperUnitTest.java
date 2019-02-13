@@ -3,6 +3,7 @@ package com.example.myapplication;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -19,23 +20,23 @@ public class NumberHelperUnitTest {
     @Test
     public void check_for_odd(){
         int testnum = 5;
-        Assert.assertEquals("odd", NumberHelper.getInstance().oddOrEven(testnum));
+        Assert.assertEquals("odd", numberHelper.oddOrEven(testnum));
     }
 
     @Test
     public void check_for_even(){
         int testnum = 6;
-        Assert.assertEquals("even", NumberHelper.getInstance().oddOrEven(testnum));
+        Assert.assertEquals("even", numberHelper.oddOrEven(testnum));
     }
 
     @Test
     public void div_by_5_check(){
-        Assert.assertTrue(NumberHelper.getInstance().divisibleBy5(15));
+        Assert.assertTrue(numberHelper.divisibleBy5(15));
     }
 
     @Test
     public void div_by_not_5_check(){
-        Assert.assertFalse(NumberHelper.getInstance().divisibleBy5(11));
+        Assert.assertFalse(numberHelper.divisibleBy5(11));
     }
 
     @Test
@@ -43,7 +44,7 @@ public class NumberHelperUnitTest {
         int base = 3;
         int range = 5;
         int[] expected = new int[]{3,6,9,12,15};
-        Assert.assertArrayEquals(expected, NumberHelper.getInstance().multiplesOfN(base, range));
+        Assert.assertArrayEquals(expected, numberHelper.multiplesOfN(base, range));
     }
 
     @Test (expected = IllegalArgumentException.class)
@@ -54,8 +55,33 @@ public class NumberHelperUnitTest {
         Assert.assertArrayEquals(expected, numberHelper.multiplesOfN(base, range));
     }
 
+    @Test
+    public void string_num_test(){
+        int expected = 5;
+        String test = "5";
+        Assert.assertEquals(expected, numberHelper.stringToNumber(test));
+    }
 
+    @Test
+    public void string_not_num(){
+        String num = "five";
+        int result = numberHelper.stringToNumber(num);
+        Assert.assertEquals(-1, result);
+    }
 
+    @Test
+    public void array_sum_test(){
+        int[] args = new int[]{1,2,3};
+        int expected = 6;
+        Assert.assertEquals(expected, numberHelper.arraySum(args));
+    }
+
+    @Test
+    public void array_sum_test_neg(){
+        int[] args = new int[]{1,-1,3, -5, 0};
+        int expected = -2;
+        Assert.assertEquals(expected, numberHelper.arraySum(args));
+    }
 
 
     @After
