@@ -43,17 +43,20 @@ public class NumberHelperUnitTest {
     public void mult_of_n_test(){
         int base = 3;
         int range = 5;
+        int[] actual = numberHelper.multiplesOfN(base, range);
         int[] expected = new int[]{3,6,9,12,15};
-        Assert.assertArrayEquals(expected, numberHelper.multiplesOfN(base, range));
+        Assert.assertArrayEquals(expected, actual);
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test
     public void mult_of_n_if_neg_range(){
-        int base = 3;
-        int range = -2;
-        int[] expected = numberHelper.multiplesOfN(base, range);
-        Assert.assertArrayEquals(expected, numberHelper.multiplesOfN(base, range));
-    }
+        try {
+            numberHelper.multiplesOfN(3, -2);
+        } catch (IllegalArgumentException e){
+            Assert.fail();
+        }
+        }
+
 
     @Test
     public void string_num_test(){
