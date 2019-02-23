@@ -19,7 +19,7 @@ public class ArrayMethodTestingTest {
 
     @After
     public void tearDown(){
-        arrayMethodTesting = null
+        arrayMethodTesting = null;
     }
 
 
