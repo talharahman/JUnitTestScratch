@@ -35,27 +35,6 @@ public class ArrayMethodTesting {
      * return a new String[] with the expected values
      */
 
-/*    public String[] smallEvensOnly(String[] input) {
-        if (input != null && input.length > 0 && input.length % 2 == 0) {
-            String[] output = new String[input.length - 1];
-
-            String largest = input[0];
-            if (input.length % 2 == 0) {
-                for (String anInput : input) {
-                    if (largest.length() < anInput.length()) {
-                        largest = anInput;
-                    }
-                }
-                for (int j = 0; j < input.length; j++) {
-                    if (!input[j].equals(largest)) {
-                        output[j] = input[j];
-                    }
-                }
-                return output;
-            }
-        }
-        return input;
-    }*/
 
     public String[] smallEvensOnly(String[] input){
         if (input == null){
@@ -64,6 +43,7 @@ public class ArrayMethodTesting {
 
         String pointer = "";
         ArrayList<String> inputList = new ArrayList<>(Arrays.asList(input));
+
         if(inputList.size() % 2 == 0){
             for (int i = 0; i < inputList.size(); i++) {
                 if(inputList.get(i).length() > pointer.length()){
@@ -71,6 +51,7 @@ public class ArrayMethodTesting {
                 }
             }
             inputList.remove(pointer);
+
             String[] output = new String[inputList.size()];
             for (int i = 0; i < output.length; i++) {
                 output[i] = inputList.get(i);
@@ -85,14 +66,26 @@ public class ArrayMethodTesting {
      * return a new char[] with the expected values
      */
 
-//    public char[] sortAlphabetically(char[] input){}
+    public char[] sortAlphabetically(char[] input){
+        if (input != null) Arrays.sort(input);
+        return input;
+    }
 
     /**
      * return a double value
      * return the sum of all the decimal numbers in the input array
      */
 
-  //  public double returnSum(double[] input){}
+    public double returnSum(double[] input){
+        double result = 0;
+        if (input.length > 0) {
+            for (double a: input) {
+                result += a;
+            }
+        }
+        return result;
+    }
+
 
     /**
      * return a Set value

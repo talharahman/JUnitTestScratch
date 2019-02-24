@@ -46,7 +46,7 @@ public class ArrayMethodTestingTest {
     public void small_evens_only_test(){
         String[] input = {"hello", "world", "said", "every", "person", "ever"};
         String[] output = {"hello", "world", "said", "every", "ever"};
-        Assert.assertArrayEquals(arrayMethodTesting.smallEvensOnly(input), output);
+        Assert.assertArrayEquals(output, arrayMethodTesting.smallEvensOnly(input));
     }
 
     @Test
@@ -55,6 +55,32 @@ public class ArrayMethodTestingTest {
     }
 
     @Test
+    public void sort_alphabet_test(){
+        char[] input = {'a', 'c', 'b', 'd'};
+        char[] output = {'a', 'b', 'c', 'd'};
+        Assert.assertArrayEquals(output, arrayMethodTesting.sortAlphabetically(input));
+    }
+
+    @Test
+    public void sort_alphabet_test_numbers(){
+        char[] input = {'2', '5', '3', '4'};
+        char[] output = {'2', '3', '4', '5'};
+        Assert.assertArrayEquals(output, arrayMethodTesting.sortAlphabetically(input));
+    }
+
+    @Test
+    public void sort_alphabet_test_null(){
+        Assert.assertNull(arrayMethodTesting.sortAlphabetically(null));
+    }
+
+    @Test
+    public void return_sum_test(){
+        double[] input = {5.0, 3.3, 1.5, 6.0, 2.7};
+        double output = 18.5;
+        double result = arrayMethodTesting.returnSum(input);
+        Assert.assertEquals(Double.compare(output, result),0);
+    }
+
 
 
     @After
