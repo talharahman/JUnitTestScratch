@@ -1,5 +1,9 @@
 package com.example.myapplication;
 
+import android.support.annotation.NonNull;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
 
@@ -22,7 +26,7 @@ public class ArrayMethodTesting {
      */
 
     public boolean isLessThan10(String[] input){
-
+        return input != null && input.length < 10;
     }
 
     /**
@@ -31,8 +35,30 @@ public class ArrayMethodTesting {
      * return a new String[] with the expected values
      */
 
-    public String[] smallEvensOnly(String[] input){
 
+    public String[] smallEvensOnly(String[] input){
+        if (input == null){
+            return null;
+        }
+
+        String pointer = "";
+        ArrayList<String> inputList = new ArrayList<>(Arrays.asList(input));
+
+        if(inputList.size() % 2 == 0){
+            for (int i = 0; i < inputList.size(); i++) {
+                if(inputList.get(i).length() > pointer.length()){
+                    pointer = inputList.get(i);
+                }
+            }
+            inputList.remove(pointer);
+
+            String[] output = new String[inputList.size()];
+            for (int i = 0; i < output.length; i++) {
+                output[i] = inputList.get(i);
+            }
+            return output;
+        }
+        return input;
     }
 
     /**
@@ -41,7 +67,8 @@ public class ArrayMethodTesting {
      */
 
     public char[] sortAlphabetically(char[] input){
-
+        if (input != null) Arrays.sort(input);
+        return input;
     }
 
     /**
@@ -50,8 +77,15 @@ public class ArrayMethodTesting {
      */
 
     public double returnSum(double[] input){
-
+        double result = 0;
+        if (input.length > 0) {
+            for (double a: input) {
+                result += a;
+            }
+        }
+        return result;
     }
+
 
     /**
      * return a Set value
@@ -60,9 +94,7 @@ public class ArrayMethodTesting {
      * (uppercase, lowercase, proper case, camel case, etc.), it is not unique, please don't add it to the set
      */
 
-    public Set removeCaseSensitiveDuplicates(String[] input){
-
-    }
+  //  public Set removeCaseSensitiveDuplicates(String[] input){}
 
     /**
      * return a Map value
@@ -70,8 +102,8 @@ public class ArrayMethodTesting {
      * and the number of times it occurs in the array as its value
      */
 
-    public Map mapDuplicates(String[] input){
+  //  public Map mapDuplicates(String[] input){}
 
-    }
+
 
 }
