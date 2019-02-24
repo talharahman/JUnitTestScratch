@@ -49,16 +49,6 @@ public class NumberHelperUnitTest {
     }
 
     @Test
-    public void mult_of_n_if_neg_range(){
-        try {
-            numberHelper.multiplesOfN(3, -2);
-        } catch (IllegalArgumentException e){
-            Assert.fail();
-        }
-        }
-
-
-    @Test
     public void string_num_test(){
         int expected = 5;
         String test = "5";
